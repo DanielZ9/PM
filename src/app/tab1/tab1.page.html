@@ -1,0 +1,29 @@
+
+<ion-header [translucent]="true">
+
+    <ion-title>
+         AUTOEVALUACIÓN DE SÍNTOMAS<br>
+         DE COVID-19
+    </ion-title>
+    
+</ion-header>
+
+<br>
+
+<ion-content>
+  <form #formulario="ngForm" (ngSubmit)="guardarData()"> 
+    <ion-list>
+
+      <ion-item *ngFor="let i of data"> 
+        <ion-label>
+          {{ i.pregunta }} <br> {{ i.pregunta2 }}
+        </ion-label>
+        <ion-checkbox [name]="i.pregunta" [(ngModel)]="i.selected" color="dark"></ion-checkbox>
+      </ion-item>
+
+    </ion-list>
+
+    <ion-button  type="submit" [disabled]="formulario.invalid" expand="full">Agregar</ion-button>
+
+  </form>
+</ion-content>

@@ -1,0 +1,28 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Consultar Formularios
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-button (click)="ngOnInit()" type="submit" expand="full">ver</ion-button>
+
+<ion-content>
+  <form #formulario="ngForm">
+
+    <ion-list *ngFor="let i of datos">
+    <br>
+    <ion-label>Formulario</ion-label>
+    <br>
+      <ion-item *ngFor="let j of i"> 
+        <ion-label>
+          {{ j.pregunta }} <br> {{ j.pregunta2 }}
+        </ion-label>
+        <ion-checkbox disable="true" [name]="j.pregunta" checked="{{j.selected}}" color="dark"></ion-checkbox>
+      </ion-item>
+
+    </ion-list>
+
+  </form>
+</ion-content>
